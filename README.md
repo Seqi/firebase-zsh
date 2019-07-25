@@ -32,7 +32,7 @@ The output has a trailing space, so position the output accordingly.
 
 Restart Zsh for the changes to take effect.
 
-## Themeing
+## Theming
 
 Zsh-firebase can take in 2 parameters to account for all kinds of terminal themes you may use. The first parameters specifies the format of the display of the project id. The second parameter controls the text itself.
 
