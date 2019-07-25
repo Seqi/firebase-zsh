@@ -22,11 +22,13 @@ Finally, add the plugin output to your prompt, by opening your theme and adding 
 
 For example, 
 
-`PROMPT='%{$fg[cyan]%}%n%{$reset_color%}@%{$fg[yellow]%}%M:%{$fg[green]%}%/%{$reset_color%}$(git_prompt_info) %(!.#.$) '`
+`PROMPT='%{$fg[cyan]%}%n%{$reset_color%}:$(git_prompt_info) %(!.#.$) '`
 
 becomes
 
-`PROMPT='%{$fg[cyan]%}%n%{$reset_color%}@%{$fg[yellow]%}%M:%{$fg[green]%}%/%{$reset_color%}$(git_prompt_info)$(firebase_project) %(!.#.$) '`
+`PROMPT='%{$fg[cyan]%}%n%{$reset_color%}:$(git_prompt_info) $(firebase_project)%(!.#.$) '`
+
+The output has a trailing space, so position the output accordingly. 
 
 ## Themeing
 
