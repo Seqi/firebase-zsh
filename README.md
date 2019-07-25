@@ -39,7 +39,9 @@ Zsh-firebase can take in 2 parameters to account for all kinds of terminal theme
 For example:
 
 `$(firebase_project)`
+
 `$(firebase_project round bold)`
+
 `$(firebase_project square)`
 
 ### Formats
