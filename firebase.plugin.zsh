@@ -68,7 +68,6 @@ function get_firebase_project() {
 }
 
 function is_firebase_project() {
-	# Keep checking up, we may be in a subdir
 	local firebase_dir=$(get_firebase_dir)
 	if [[ -n $firebase_dir ]]
 	then
@@ -79,17 +78,18 @@ function is_firebase_project() {
 function get_firebase_dir() {
 	local dir="$(pwd)"
 	
+	# Keep checking up, we may be in a subdir
 	while [[ $dir != '/' ]]
 	do
-			local target="$dir/firebase.json"
+		local target="$dir/firebase.json"
 
-			if [[ -e $target ]]
-			then
-					echo $dir
-					break
-			else
-					dir=$(dirname $(realpath $dir))
-			fi
+		if [[ -e $target ]]
+		then
+				echo $dir
+				break
+		else
+				dir=$(dirname $(realpath $dir))
+		fi
 	done
 }
 
@@ -98,7 +98,7 @@ function get_config_project_id() {
 	then
 		# May be either the project id itself or an alias (which lives in .firebaserc)
 		local target=$(get_firebase_dir)
-    	echo $(grep -s $target ~/.config/configstore/firebase-tools.json | cut -d'"' -f 4)
+		echo $(grep -s $target ~/.config/configstore/firebase-tools.json | cut -d'"' -f 4)
 	fi
 }
 
