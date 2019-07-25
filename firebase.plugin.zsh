@@ -1,16 +1,68 @@
 function firebase_project() {
+	local project_id=$(get_firebase_project)
+	if [[ -n $project_id ]]
+	then
+		### Set Color ###
+		local color=$fg[yellow]
+		local style=$2
+
+		if [[ $style == "bold" ]]
+		then
+			color=$fg_bold[yellow]
+		fi
+
+		### Set Prompt  ###
+		# project
+		if [[ $1 == 'plain' ]]
+		then
+			local str=%{$color%}"$project_id"%{$reset_color%}
+			echo "$str "
+
+		# [project]
+		elif [[ $1 == 'square' ]]
+		then
+			local str=%{$color%}"[$project_id]"%{$reset_color%}			
+			echo "$str "
+
+		# fb:project
+		elif [[ $1 == 'prefix' ]]
+		then
+			local str=%{$color%}"fb:$project_id"%{$reset_color%}
+			echo "$str "
+
+		# fb:(project)
+		elif [[ $1 == 'prefix-round' ]]
+		then
+			local str=%{$color%}"fb:($project_id)"%{$reset_color%}
+			echo "$str "
+
+		# fb:[project]
+		elif [[ $1 == 'prefix-square' ]]
+		then
+			local str=%{$color%}"fb:[$project_id]"%{$reset_color%}
+			echo "$str "
+
+		# (project)
+		else 			
+			local str=%{$color%}"($project_id)"%{$reset_color%}
+			echo "$str "
+		fi
+	fi
+}
+
+function get_firebase_project() {
 	if [[ $(is_firebase_project) ]]
 	then		
 		# Check the global firebase config file as priority
 		local config_project_id=$(get_config_project_id)
 		if [[ -n $config_project_id ]]
 		then
-			echo "$config_project_id "
+			echo "$config_project_id"
 
 		# If nothing in the firebase config file, use the default value set in .firebaserc
 		else
 			local firebaserc_project_id=$(get_rc_project_id "default")
-			echo "$firebaserc_project_id "
+			echo "$firebaserc_project_id"
 		fi
 	fi	
 }
