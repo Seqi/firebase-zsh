@@ -2,11 +2,11 @@
 
 Zsh-firebase is a configurable plugin for Zsh to display the current working project or project alias when in a Firebase project directory or subdirectory. Never push to production accidentally again! 
 
-![](https://i.imgur.com/nsFsCjS.jpg)
+![](https://i.imgur.com/9jjJ9Az.jpg)
 
-![](https://i.imgur.com/cjyNV56.jpg)
+![](https://i.imgur.com/USaOJ2G.jpg)
 
-![](https://i.imgur.com/mdMWsRk.jpg)
+![](https://i.imgur.com/0yp2zMB.jpg)
 
 ## Installation
 
@@ -29,6 +29,8 @@ becomes
 `PROMPT='%{$fg[cyan]%}%n%{$reset_color%}:$(git_prompt_info) $(firebase_project)%(!.#.$) '`
 
 The output has a trailing space, so position the output accordingly. 
+
+Restart Zsh for the changes to take effect.
 
 ## Themeing
 
