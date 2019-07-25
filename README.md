@@ -65,11 +65,11 @@ The supported formats are:
 
 The output can either be in standard text, or can be made bold by passing in the `bold` value for the second parameter.
 
-####`$(firebase_project round)` 
+#### `$(firebase_project round)` 
 
 ![](https://i.imgur.com/iTb74H6.jpg)
 
-####`$(firebase_project round bold)` 
+#### `$(firebase_project round bold)` 
 
 ![](https://i.imgur.com/dbeNDSf.jpg)
 
