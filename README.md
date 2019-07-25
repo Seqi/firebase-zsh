@@ -21,3 +21,6 @@ For example,
 becomes
 
 `PROMPT='%{$fg[cyan]%}%n%{$reset_color%}@%{$fg[yellow]%}%M:%{$fg[green]%}%/%{$reset_color%}$(git_prompt_info) $(firebase_status) %(!.#.$) '`
+
+## License 
+[MIT](https://choosealicense.com/licenses/mit/)
