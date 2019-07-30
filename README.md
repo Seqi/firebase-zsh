@@ -12,7 +12,7 @@ firebase-zsh is a configurable plugin for Zsh to display the current working pro
 
 Clone the repository into your oh-my-zsh plugin folder:
 
-`git clone https://github.com/seqi/firebase-zsh ~/.oh-my-zsh/custom/plugins/firebase`
+`git clone https://github.com/seqi/firebase-zsh ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/firebase`
 
 Then add it to your list of plugins in your `~/.zshrc`
 
