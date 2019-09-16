@@ -88,7 +88,7 @@ function get_firebase_dir() {
 				echo $dir
 				break
 		else
-				dir=$(dirname $(realpath $dir))
+				dir=$(dirname ${dir:A})
 		fi
 	done
 }
