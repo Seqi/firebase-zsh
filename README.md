@@ -1,6 +1,10 @@
-# firebase-zsh :fire:
+# firebase-zsh :fire: 
+
+[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 
 firebase-zsh is a configurable plugin for Zsh to display the current working project or project alias when in a Firebase project directory or subdirectory. Never push to production accidentally again! 
+
+Part of the [Awesome zsh plugins collection!](https://github.com/unixorn/awesome-zsh-plugins)
 
 ![](https://i.imgur.com/wGwuTH7.png)
 
