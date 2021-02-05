@@ -1,52 +1,55 @@
 function firebase_project() {
 	local project_id=$(get_firebase_project)
+
 	if [[ -n $project_id ]]
 	then
-		### Set Color ###
-		local color=$fg[yellow]
-		local style=$2
+		## Set color
+		[[ "$FIREBASE_ZSH_TEXT" = "bold" ]] && color=$fg_bold[yellow] || color=$fg[yellow]
 
-		if [[ $style == "bold" ]]
+		local fire="\U1F525"
+		if [[ "$FIREBASE_ZSH_ICON" == "true" ]]
 		then
-			color=$fg_bold[yellow]
+			project_id="$fire $project_id"
 		fi
 
+		project_id=$(decorate_str "$project_id" "$FIREBASE_ZSH_STYLE")
+		
 		### Set Prompt  ###
-		# project
-		if [[ $1 == 'plain' ]]
-		then
-			local str=%{$color%}"$project_id"%{$reset_color%}
-			echo "$str "
+		echo "%{$color%}"$project_id"%{$reset_color%}"
+	fi
+}
 
-		# [project]
-		elif [[ $1 == 'square' ]]
-		then
-			local str=%{$color%}"[$project_id]"%{$reset_color%}			
-			echo "$str "
+function decorate_str() {
+	local project_id=$1
+	local style=$2
 
-		# fb:project
-		elif [[ $1 == 'prefix' ]]
-		then
-			local str=%{$color%}"fb:$project_id"%{$reset_color%}
-			echo "$str "
+	if [[ $style == 'plain' ]]
+	then
+		echo "$project_id"
 
-		# fb:(project)
-		elif [[ $1 == 'prefix-round' ]]
-		then
-			local str=%{$color%}"fb:($project_id)"%{$reset_color%}
-			echo "$str "
+	# [project]
+	elif [[ $style == 'square' ]]
+	then
+		echo "[$project_id]"
 
-		# fb:[project]
-		elif [[ $1 == 'prefix-square' ]]
-		then
-			local str=%{$color%}"fb:[$project_id]"%{$reset_color%}
-			echo "$str "
+	# fb:project
+	elif [[ $style == 'prefix' ]]
+	then
+		echo "fb:$project_id"
 
-		# (project)
-		else 			
-			local str=%{$color%}"($project_id)"%{$reset_color%}
-			echo "$str "
-		fi
+	# fb:(project)
+	elif [[ $style == 'prefix-round' ]]
+	then
+		echo "fb:($project_id)"
+
+	# fb:[project]
+	elif [[ $style == 'prefix-square' ]]
+	then
+		echo "fb:[$project_id]"
+
+	# (project)
+	else 			
+		echo "($project_id)"
 	fi
 }
 
