@@ -2,11 +2,7 @@
 
 firebase-zsh is a configurable plugin for Zsh to display the current working project or project alias when in a Firebase project directory or subdirectory. Never push to production accidentally again! 
 
-![](https://i.imgur.com/9jjJ9Az.jpg)
-
-![](https://i.imgur.com/USaOJ2G.jpg)
-
-![](https://i.imgur.com/0yp2zMB.jpg)
+![](https://i.imgur.com/wGwuTH7.png)
 
 ## Installation
 
@@ -26,57 +22,42 @@ For example,
 
 becomes
 
-`PROMPT='%{$fg[cyan]%}%n%{$reset_color%}:$(git_prompt_info) $(firebase_project)%(!.#.$) '`
-
-The output has a trailing space, so position the output accordingly. 
+`PROMPT='%{$fg[cyan]%}%n%{$reset_color%}:$(firebase_project) $(git_prompt_info)%(!.#.$) '`
 
 Restart Zsh for the changes to take effect.
 
-## Theming
+## Configuration
 
-Zsh-firebase can take in 2 parameters to account for all kinds of terminal themes you may use. The first parameters specifies the format of the display of the project id. The second parameter controls the text itself.
+firebase-zsh has a few customisation options to get it to fit with whatever theme you are using. These can be configured through environment variables. These options are:
 
-For example:
+### `FIREBASE_ZSH_TEXT`
+Configures the font style of the text.
 
-`$(firebase_project)`
+Options:
+- `bold` - makes the text bold
 
-`$(firebase_project round bold)`
+Defaults to **non-bold**
 
-`$(firebase_project square)`
+### `FIREBASE_ZSH_ICON`
+Whether or not to show the 🔥 icon.
 
-### Formats
-The supported formats are:
+Options:
+- `true`
 
-#### round (default)
-![](https://i.imgur.com/iTb74H6.jpg)
+Defaults to **false**
 
-#### plain 
-![](https://i.imgur.com/xnYmpE1.jpg)
+### `FIREBASE_ZSH_STYLE`
+The format of the text itself to help match with your current zsh theme.
 
-#### square 
-![](https://i.imgur.com/lW8uN2T.jpg)
+Options:
+- `plain`: output as `my-firebase-project`
+- `round`: output as `(my-firebase-project)`
+- `square`: output as `[my-firebase-project]`
+- `prefix`: output as `fb:my-firebase-project`
+- `prefix-round`: output as `fb:(my-firebase-project)`
+- `prefix-square`: output as `fb:[my-firebase-project]`
 
-#### prefix 
-![](https://i.imgur.com/cYRVdmP.jpg)
-
-#### prefix-round
-![](https://i.imgur.com/6GxbMwX.jpg)
-
-#### prefix-square 
-![](https://i.imgur.com/YmhNGi9.jpg)
-
-### Text
-
-The output can either be in standard text, or can be made bold by passing in the `bold` value for the second parameter.
-
-#### `$(firebase_project round)` 
-
-![](https://i.imgur.com/iTb74H6.jpg)
-
-#### `$(firebase_project round bold)` 
-
-![](https://i.imgur.com/dbeNDSf.jpg)
-
+Defaults to **round**
 ## Contributing
 
 Changes are welcomed. If you have an issue, please feel free to raise it in the issues section. If you wish to make a contribution, please create a corresponding issue. 
