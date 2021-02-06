@@ -15,7 +15,17 @@ function firebase_project() {
 		project_id=$(decorate_str "$project_id" "$FIREBASE_ZSH_STYLE")
 		
 		### Set Prompt  ###
-		echo "%{$color%}"$project_id"%{$reset_color%}"
+		project_id="%{$color%}"$project_id"%{$reset_color%}"
+
+		# Add trailing space
+		if [[ "$FIREBASE_ZSH_TRAILING_SPACE" == "true" ]]
+		then
+			echo "$project_id "
+		elif [[ "$FIREBASE_ZSH_LEADING_SPACE" == "true" ]]
+			echo " $project_id"
+		else
+			echo $project_id
+		fi
 	fi
 }
 

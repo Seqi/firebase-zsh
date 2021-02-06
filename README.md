@@ -58,6 +58,13 @@ Options:
 - `prefix-square`: output as `fb:[my-firebase-project]`
 
 Defaults to **round**
+
+### `FIREBASE_ZSH_TRAILING_SPACE`
+Adds a trailing space to the output.
+
+### `FIREBASE_ZSH_LEADING_SPACE`
+Adds a leading space to the output.
+
 ## Contributing
 
 Changes are welcomed. If you have an issue, please feel free to raise it in the issues section. If you wish to make a contribution, please create a corresponding issue. 
