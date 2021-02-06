@@ -22,6 +22,7 @@ function firebase_project() {
 		then
 			echo "$project_id "
 		elif [[ "$FIREBASE_ZSH_LEADING_SPACE" == "true" ]]
+		then
 			echo " $project_id"
 		else
 			echo $project_id
