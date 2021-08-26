@@ -112,7 +112,7 @@ function get_config_project_id() {
 	then
 		# May be either the project id itself or an alias (which lives in .firebaserc)
 		local target=$(get_firebase_dir)
-		echo $(grep -s $target ~/.config/configstore/firebase-tools.json | cut -d'"' -f 4)
+		echo $(grep -s \"$target\" ~/.config/configstore/firebase-tools.json | cut -d'"' -f 4)
 	fi
 }
 
